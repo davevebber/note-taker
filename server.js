@@ -4,10 +4,10 @@ const app = express();
 
 // routes
 const htmlRoutes = require('./routes/htmlRoutes.js');
-// const apiRoutes = require('./routes/apiRoutes.js');
+const apiRoutes = require('./routes/apiRoutes.js');
 
 // port
-let PORT = process.env.PORT || 3009;
+let PORT = process.env.PORT || 3005;
 
 // sets express to handle data 
 app.use(express.urlencoded({ extended: true }));
@@ -18,7 +18,7 @@ app.use(express.static("public"));
 
 // routing
 app.use('/', htmlRoutes);
-// app.use('/api', apiRoutes);
+app.use('/api', apiRoutes);
 
 // server listening
 app.listen(PORT, () => {
