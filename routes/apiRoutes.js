@@ -14,7 +14,7 @@ router.post('/notes', (req, res) => {
     const newNote = req.body;
     console.log(newNote);
     db.push(newNote);
-    fs.writeFileSync('./db/db.json', JSON.stringify(db));
+    fs.writeFileSync('./db/db.json', JSON.stringify(db, null, 2)); // null, 2 pretty prints the note in the db.json file
     res.json(newNote);
 });
 
@@ -22,6 +22,7 @@ router.delete('/notes/:id', (req, res) => {
     const noteID = req.params.id;
     let id = db.filter(entry => entry.id !== noteID);
     fs.writeFileSync('./db/db.json', JSON.stringify(id));
+    res.json(db);
   });
 
 module.exports = router;
