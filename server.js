@@ -8,7 +8,7 @@ const apiRoutes = require('./routes/apiRoutes');
 const app = express();
 // port
 
-const PORT = process.env.PORT || 3001;
+let PORT = process.env.PORT || 3001;
 
 // sets express to handle data 
 app.use(express.json());
